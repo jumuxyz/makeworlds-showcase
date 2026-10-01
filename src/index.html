@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A MakeWorlds technical report on image-based Gaussian reconstruction: system overview, scene representation, evaluation protocol and selected public-scene experiments.">
+  <title>MakeWorlds — From photographs to Gaussian scenes</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/site.css">
+  <script src="./assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header shell">
+    <a class="brand" href="./"><img src="./assets/mark.svg" width="25" height="25" alt="">MakeWorlds <span> / Technical report</span></a>
+    <nav aria-label="Main"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Experiments</a><a href="#references">References</a></nav>
+  </header>
+  <main id="main" class="shell">
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">MAKEWORLDS TEAM · TECHNICAL REPORT</p>
+      <h1 id="title">From photographs<br>to Gaussian scenes.</h1>
+      <p class="lead">A system overview and selected experiments in image-based reconstruction across Mac, Linux and Windows.</p>
+      <div class="run-meta"><span>3 selected scenes</span><span>Mac · Linux · Windows</span><span>Tested {{DATE}}</span><span>Candidate <code>{{CANDIDATE}}</code></span></div>
+      <div class="abstract"><h2>Abstract</h2><p>Image-based reconstruction connects camera geometry, scene representation and image formation. This report describes the MakeWorlds workflow at the system level, from input photographs to a delivered Gaussian scene. It introduces the public concepts behind the representation and explains how visual comparisons and numerical evaluation answer different questions. Experiments on Train, Dr Johnson and Playroom report image quality and cross-platform variation for a fixed candidate, with the published 3DGS values as reference points.</p></div>
+      <p class="keywords"><strong>Topics</strong> Image-based reconstruction · Gaussian splatting · Camera estimation · Cross-platform evaluation</p>
+    </section>
+
+    <section id="overview" class="section" aria-labelledby="overview-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / SYSTEM OVERVIEW</p><h2 id="overview-title">A connected reconstruction workflow</h2></div></div>
+      <p class="section-copy">The task is to recover a scene that can explain photographs taken from different positions. A useful result depends on both the estimated cameras and the learned scene: their relationship determines how a three-dimensional model becomes an image.</p>
+      <figure class="pipeline-figure">
+        <ol class="pipeline">
+          <li><span>01</span><h3>Photographs</h3><p>Multiple observations of one scene</p></li>
+          <li><span>02</span><h3>Camera estimation</h3><p>Relate images to a shared scene</p></li>
+          <li><span>03</span><h3>Scene optimization</h3><p>Fit a Gaussian representation</p></li>
+          <li><span>04</span><h3>Scene delivery</h3><p>Export the Gaussian PLY result</p></li>
+          <li><span>05</span><h3>Evaluation</h3><p>Compare rendered and reference views</p></li>
+        </ol>
+        <figcaption>Figure 1. Conceptual data flow for the photograph studies. This summarizes the workflow, rather than the internal execution schedule.</figcaption>
+      </figure>
+      <div class="technical-columns">
+        <article><h3>Geometry before appearance</h3><p>Camera estimation establishes the viewpoint associated with each image. Intrinsics describe the camera projection, while extrinsics relate the camera to scene coordinates. Structure-from-Motion provides this geometric context; the <a href="https://colmap.github.io/tutorial.html">COLMAP documentation</a> describes the underlying reconstruction problem.</p></article>
+        <article><h3>A concrete output to inspect</h3><p>MakeWorlds carries the reconstruction through to a Gaussian PLY asset. The visual study pairs images from the delivered scene with their reference photographs. This gives readers an observable result alongside the numerical summary.</p></article>
+      </div>
+    </section>
+
+    <section id="representation" class="section" aria-labelledby="representation-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / TECHNICAL BACKGROUND</p><h2 id="representation-title">Representing a scene with Gaussians</h2></div></div>
+      <div class="representation-layout">
+        <div><p>A Gaussian scene uses spatial primitives with position, oriented extent, opacity and appearance. These primitives exist in a shared three-dimensional coordinate system and can be projected into a chosen camera. This representation is established in the <a href="https://arxiv.org/html/2308.04079v1">3D Gaussian Splatting paper</a>.</p><p>During scene fitting, rendered views are compared with observed images. Changing the scene parameters changes the rendered images, allowing image disagreement to guide optimization. The expression alongside gives the standard spatial Gaussian used to describe the primitive in that literature.</p></div>
+        <figure class="equation-card"><p class="equation-label">Spatial Gaussian · public formulation</p><p class="equation" role="math" aria-label="g of x equals the exponential of minus one half times x minus mu transpose, sigma inverse, x minus mu">g(x) = exp[−½(x − μ)ᵀ Σ⁻¹(x − μ)]</p><dl><div><dt>μ</dt><dd>Centre of the primitive</dd></div><div><dt>Σ</dt><dd>Covariance: spatial extent and orientation</dd></div></dl><figcaption>Background: Kerbl et al., 2023, §4. Opacity and appearance accompany the spatial primitive.</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="visual-study" class="section" aria-labelledby="visual-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / QUALITATIVE STUDY</p><h2 id="visual-title">Train</h2></div><p>Tanks and Temples · 301 photographs</p></div>
+      <p class="section-copy">A locomotive reconstructed from photographs. Compare the delivered scene with the original photograph at the same test viewpoint.</p>
+      <figure class="study">
+        <div class="comparison" id="comparison" style="--split:50%">
+          <div class="image-pane render-pane"><img id="render-image" src="./assets/images/train-front-render.webp" width="979" height="545" alt="MakeWorlds render of the Train locomotive, front and body"><span class="image-label">MakeWorlds render</span></div>
+          <div class="image-pane photo-pane"><img id="photo-image" src="./assets/images/train-front-photo.webp" width="979" height="545" alt="Original photograph of the same Train front and body viewpoint"><span class="image-label">Original photograph</span></div>
+          <div class="divider" aria-hidden="true"></div>
+          <input id="split" class="comparison-slider" type="range" min="0" max="100" step="1" value="50" aria-label="Photo and render divider" aria-controls="comparison" hidden>
+        </div>
+        <div class="comparison-controls" hidden>
+          <div class="view-switch" aria-label="Choose a test viewpoint">
+            <button type="button" data-view="front" aria-pressed="true"><img src="./assets/images/train-front-render-400.webp" width="400" height="223" alt="" loading="lazy"><span>Front &amp; body</span></button>
+            <button type="button" data-view="diagonal" aria-pressed="false"><img src="./assets/images/train-diagonal-render-400.webp" width="400" height="223" alt="" loading="lazy"><span>Oblique view</span></button>
+            <button type="button" data-view="side" aria-pressed="false"><img src="./assets/images/train-side-render-400.webp" width="400" height="223" alt="" loading="lazy"><span>Side texture</span></button>
+          </div>
+        </div>
+        <p class="comparison-status" role="status"></p>
+        <figcaption><span id="view-caption">Mac · view-000009</span><span>Selected display views; metrics below use evaluated test-view means.</span></figcaption>
+      </figure>
+    </section>
+
+    <section id="method" class="section method" aria-labelledby="method-title">
+      <div><p class="eyebrow">04 / EXPERIMENTAL DESIGN</p><h2 id="method-title">What is being measured?</h2><p>Camera estimation, scene quality and platform variation address different parts of the reconstruction problem.</p></div>
+      <div class="method-content">
+        <h3>Image comparison and view selection</h3><p>Each image pair uses one evaluated camera viewpoint. The display views highlight overall shape, an oblique overview and side texture. Numerical summaries instead aggregate the evaluated test views, so they do not depend on which images appear in the visual study.</p>
+        <h3>Two evaluation questions</h3><p>The paper-comparison table places the recorded PSNR, SSIM and LPIPS beside published per-scene reference values. MakeWorlds estimates its own cameras, so these figures describe an end-to-end reconstruction comparison. The separate cross-platform record asks how far the test-set means vary across the three platform runs.</p>
+        <div class="protocol-note"><h3>Why the two tables are separate</h3><p>The cross-platform spread is computed within its own evaluation protocol. It should not be reconstructed by subtracting values from the paper-comparison table. Keeping the protocols separate preserves what each measurement actually describes.</p></div>
+        <dl><div><dt>Settings</dt><dd>Medium · source resolution · 30,000 steps</dd></div><div><dt>Hardware</dt><dd>Mac: Apple M4 Max. Linux and Windows: NVIDIA RTX 4090.</dd></div><div><dt>Snapshot</dt><dd>{{DATE}} · candidate <code>{{CANDIDATE}}</code></dd></div><div><dt>Comparison</dt><dd>Published 3DGS paper values at 30,000 steps. No colour-corrected metrics are substituted into this table.</dd></div></dl>
+        <h3>Reading the evidence</h3><p>Image-quality metrics characterize this set of reconstructions. Platform spread characterizes agreement of the measured image-quality means; it is not a frame-rate measurement or a claim of byte-identical models. The data files retain the candidate and run identifiers so each row can be traced to its recorded evaluation.</p>
+      </div>
+    </section>
+
+    <section id="results" class="section" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow">05 / EXPERIMENTAL RESULTS</p><h2 id="results-title">Selected public scenes</h2></div><a href="./data/results.json">View data ↗</a></div>
+      <p class="section-copy">Three scene studies, each measured on three platforms. PSNR and SSIM describe image similarity; LPIPS measures perceptual difference.</p>
+      <div class="table-scroll" role="region" aria-label="Selected scene evaluation results" tabindex="0">
+        <table><caption>Medium · source resolution · 30,000 steps · paper-comparison protocol</caption>
+          <thead><tr><th scope="col">Scene</th><th scope="col">Source / platform</th><th scope="col">PSNR ↑ <small>dB</small></th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th></tr></thead>
+          {{RESULT_ROWS}}
+        </table>
+      </div>
+      <p class="note">Higher PSNR / SSIM and lower LPIPS are better. Paper rows are published reference values; MakeWorlds solves its own cameras. These are selected scene results, not an exhaustive benchmark.</p>
+      <div class="spread-heading"><h3>Across platforms</h3><p>Maximum minus minimum PSNR, using the separate cross-platform evaluation protocol.</p></div>
+      <div class="spreads">{{SPREADS}}</div>
+    </section>
+
+    <section id="references" class="section method" aria-labelledby="references-title">
+      <div><p class="eyebrow">06 / REFERENCES</p><h2 id="references-title">Background &amp; data</h2><p>Public literature for the underlying concepts, and recorded inputs for the experiments.</p></div>
+      <div class="method-content">
+        <ul class="reference-list">
+          <li><a href="https://arxiv.org/html/2308.04079v1">3D Gaussian Splatting for Real-Time Radiance Field Rendering</a><span>Kerbl et al. · 2023 · representation background and appendix Tables 7–9</span></li>
+          <li><a href="https://colmap.github.io/tutorial.html">COLMAP: Structure-from-Motion tutorial</a><span>Camera geometry and reconstruction background</span></li>
+          <li><a href="https://www.tanksandtemples.org/">Tanks and Temples</a><span>Train input dataset</span></li>
+          <li><a href="https://repo-sam.inria.fr/fungraph/deep-blending/">Deep Blending</a><span>Dr Johnson and Playroom input datasets</span></li>
+        </ul>
+        <p class="source-links"><a href="./data/sources.json">Data &amp; image provenance ↗</a><a href="https://www.makeworlds.net/en/blog-train.html">Train study on MakeWorlds ↗</a></p>
+      </div>
+    </section>
+  </main>
+  <footer id="footer" class="shell">
+    <div class="footer-brand"><img src="./assets/mark.svg" width="36" height="36" alt=""><div><strong>MakeWorlds</strong><span>Technical report</span></div></div>
+    <nav class="footer-links" aria-label="Project links">
+      <a href="https://www.makeworlds.net/" target="_blank" rel="noopener noreferrer" aria-label="MakeWorlds website (opens in a new tab)">
+        <span class="footer-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></svg></span>
+        <span>makeworlds.net</span>
+      </a>
+      <a href="https://x.com/Jumu_AI" target="_blank" rel="noopener noreferrer" aria-label="X · @Jumu_AI (opens in a new tab)">
+        <span class="footer-icon footer-icon-x" aria-hidden="true"><img src="./assets/x.svg" width="16" height="16" alt=""></span>
+        <span>@Jumu_AI</span>
+      </a>
+    </nav>
+  </footer>
+</body>
+</html>
