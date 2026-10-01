@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "candidate": "bb039199",
+  "testedAt": "2026-10-01",
+  "selectionRule": "Selected public scenes with higher PSNR and SSIM and lower LPIPS than the paper reference on all three tested platforms.",
+  "source": {
+    "repository": "makeworlds",
+    "benchmarks": "Marketing/Evaluations/benchmarks.csv",
+    "sha256": "b143e888ad353ac8f0a328608bc1182bb5dd886989f528aea9015ea23e9f4092",
+    "crossPlatform": "Marketing/Evaluations/cross-platform.csv",
+    "crossPlatformSha256": "445b18149e7b08680e0101f7220798bb6b15de0469da5857c5a971769a925418"
+  },
+  "paper": {
+    "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+    "url": "https://arxiv.org/html/2308.04079v1",
+    "steps": 30000,
+    "tables": [
+      7,
+      8,
+      9
+    ],
+    "comparison": "The published scene values are reference baselines; MakeWorlds solves its own cameras and measures its fixed test views."
+  },
+  "scenes": [
+    {
+      "code": "B-Train",
+      "name": "Train",
+      "inputImages": 301,
+      "paper": {
+        "psnr": 21.097,
+        "ssim": 0.802,
+        "lpips": 0.218
+      },
+      "platforms": [
+        {
+          "platform": "Mac",
+          "record": "B-Train-c3fcfe0b.json",
+          "psnr": 21.227,
+          "ssim": 0.8463,
+          "lpips": 0.1537
+        },
+        {
+          "platform": "Linux",
+          "record": "B-Train-3aac1a39.json",
+          "psnr": 21.282,
+          "ssim": 0.8479,
+          "lpips": 0.1528
+        },
+        {
+          "platform": "Windows",
+          "record": "B-Train-e58101d0.json",
+          "psnr": 21.205,
+          "ssim": 0.8468,
+          "lpips": 0.153
+        }
+      ],
+      "crossPlatform": {
+        "psnr": 0.072,
+        "ssim": 0.0016,
+        "lpips": 0.0005
+      },
+      "evaluatedTestViews": 19
+    },
+    {
+      "code": "B-DrJohnson",
+      "name": "Dr Johnson",
+      "inputImages": 263,
+      "paper": {
+        "psnr": 28.766,
+        "ssim": 0.899,
+        "lpips": 0.244
+      },
+      "platforms": [
+        {
+          "platform": "Mac",
+          "record": "B-DrJohnson-825e74b6.json",
+          "psnr": 29.18,
+          "ssim": 0.9124,
+          "lpips": 0.2215
+        },
+        {
+          "platform": "Linux",
+          "record": "B-DrJohnson-b48764ba.json",
+          "psnr": 29.17,
+          "ssim": 0.9101,
+          "lpips": 0.2267
+        },
+        {
+          "platform": "Windows",
+          "record": "B-DrJohnson-4de91ef7.json",
+          "psnr": 29.274,
+          "ssim": 0.9095,
+          "lpips": 0.2271
+        }
+      ],
+      "crossPlatform": {
+        "psnr": 0.104,
+        "ssim": 0.0029,
+        "lpips": 0.0016
+      },
+      "evaluatedTestViews": 16
+    },
+    {
+      "code": "B-Playroom",
+      "name": "Playroom",
+      "inputImages": 225,
+      "paper": {
+        "psnr": 30.044,
+        "ssim": 0.906,
+        "lpips": 0.241
+      },
+      "platforms": [
+        {
+          "platform": "Mac",
+          "record": "B-Playroom-79fa3ff7.json",
+          "psnr": 30.385,
+          "ssim": 0.9148,
+          "lpips": 0.2264
+        },
+        {
+          "platform": "Linux",
+          "record": "B-Playroom-1f32c989.json",
+          "psnr": 30.435,
+          "ssim": 0.9158,
+          "lpips": 0.2252
+        },
+        {
+          "platform": "Windows",
+          "record": "B-Playroom-11af1b63.json",
+          "psnr": 30.205,
+          "ssim": 0.9137,
+          "lpips": 0.2268
+        }
+      ],
+      "crossPlatform": {
+        "psnr": 0.23,
+        "ssim": 0.0021,
+        "lpips": 0.0015
+      },
+      "evaluatedTestViews": 14
+    }
+  ]
+}

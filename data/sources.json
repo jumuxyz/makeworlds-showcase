@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "importedAt": "2026-10-01",
+  "scope": "Selected public-scene showcase; no own captures.",
+  "approval": {
+    "approvedBy": "MakeWorlds project owner",
+    "date": "2026-10-01",
+    "use": "Official website and GitHub Pages promotion"
+  },
+  "results": {
+    "file": "data/results.json",
+    "sha256": "d4cce8e232f840702d20dfd66e57c9f5cda55ac5a9f12c610f13fe5b61a35ab3",
+    "repository": "makeworlds-net",
+    "sourceFile": "makeworlds-site/seo/blog.json",
+    "sourceCommit": "f26be8578a41c04d29fd0ced0c61032820a13485"
+  },
+  "datasets": [
+    {
+      "name": "Tanks and Temples",
+      "scenes": [
+        "Train"
+      ],
+      "url": "https://www.tanksandtemples.org/"
+    },
+    {
+      "name": "Deep Blending",
+      "scenes": [
+        "Dr Johnson",
+        "Playroom"
+      ],
+      "url": "https://repo-sam.inria.fr/fungraph/deep-blending/"
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/images/train-front-render.webp",
+      "productEvidence": true,
+      "sourceRepository": "makeworlds",
+      "sourcePath": "Apps/MakeWorldsFoundry/Intermediate/Acceptance/Records/boards/B-Train/panels/0001-view-000009.render.png",
+      "sourceSha256": "6aea790661ac3a1c9ebd2c77653325604782e0d2b8a7b9d039f887aadb8363ee",
+      "candidate": "bb039199",
+      "record": "B-Train-c3fcfe0b.json",
+      "sample": "B-Train",
+      "platform": "Mac",
+      "view": "view-000009",
+      "selectionRule": "Selected test views for overall shape, an oblique overview and side texture; paired original photographs and renders from one frozen-candidate evaluation.",
+      "rights": "MakeWorlds owner approved promotional use on 2026-10-01 (Tanks and Temples)",
+      "width": 979,
+      "height": 545,
+      "encoding": "WebP quality 94, no upscaling or enhancement",
+      "placement": "Blog Train article and related article links",
+      "publicationSha256": "368aba2e2ad26484cf565d35ccae743f44b0280018f3ce9845e21804d9dab475",
+      "sourceWebsitePath": "makeworlds-site/assets/blog/train-front-render.webp",
+      "thumbnail": {
+        "path": "assets/images/train-front-render-400.webp",
+        "sha256": "c32b5776653a20ed3a46d7d34bce6969b70af4e3c577f2bba6ee8fbd9d08ab65",
+        "width": 400,
+        "height": 223,
+        "sourceWebsitePath": "makeworlds-site/assets/blog/train-front-render-400.webp"
+      }
+    },
+    {
+      "path": "assets/images/train-front-photo.webp",
+      "productEvidence": true,
+      "sourceRepository": "makeworlds",
+      "sourcePath": "Apps/MakeWorldsFoundry/Intermediate/Acceptance/Records/boards/B-Train/panels/0001-view-000009.reference.png",
+      "sourceSha256": "ead81fe4329b0c7acdfa46d61d4fa7625d914904860cfa7daeebcb0472f63933",
+      "candidate": "bb039199",
+      "record": "B-Train-c3fcfe0b.json",
+      "sample": "B-Train",
+      "platform": "Mac",
+      "view": "view-000009",
+      "selectionRule": "Selected test views for overall shape, an oblique overview and side texture; paired original photographs and renders from one frozen-candidate evaluation.",
+      "rights": "MakeWorlds owner approved promotional use on 2026-10-01 (Tanks and Temples)",
+      "width": 979,
+      "height": 545,
+      "encoding": "WebP quality 94, no upscaling or enhancement",
+      "placement": "Blog Train article and related article links",
+      "publicationSha256": "a7005f5de54eabc5086373c39dc3e4d63d8dbfb3a42832f9d6578f0c0efaabc7",
+      "sourceWebsitePath": "makeworlds-site/assets/blog/train-front-photo.webp"
+    },
+    {
+      "path": "assets/images/train-diagonal-render.webp",
+      "productEvidence": true,
+      "sourceRepository": "makeworlds",
+      "sourcePath": "Apps/MakeWorldsFoundry/Intermediate/Acceptance/Records/boards/B-Train/panels/0004-view-000057.render.png",
+      "sourceSha256": "d8b44e549f730812e3a2cb8eda7036ba1b8761fd200ffde47d2e59418266bce5",
+      "candidate": "bb039199",
+      "record": "B-Train-c3fcfe0b.json",
+      "sample": "B-Train",
+      "platform": "Mac",
+      "view": "view-000057",
+      "selectionRule": "Selected test views for overall shape, an oblique overview and side texture; paired original photographs and renders from one frozen-candidate evaluation.",
+      "rights": "MakeWorlds owner approved promotional use on 2026-10-01 (Tanks and Temples)",
+      "width": 979,
+      "height": 545,
+      "encoding": "WebP quality 94, no upscaling or enhancement",
+      "placement": "Blog Train article and related article links",
+      "publicationSha256": "84ba203ead8bb96687d55b42c41165a0908ae3d74257220413d364e51b798302",
+      "sourceWebsitePath": "makeworlds-site/assets/blog/train-diagonal-render.webp",
+      "thumbnail": {
+        "path": "assets/images/train-diagonal-render-400.webp",
+        "sha256": "cbacc8a141f4452e5ad1bd98b0ceec3c17bff81b607ab02f236251acd1961a9e",
+        "width": 400,
+        "height": 223,
+        "sourceWebsitePath": "makeworlds-site/assets/blog/train-diagonal-render-400.webp"
+      }
+    },
+    {
+      "path": "assets/images/train-diagonal-photo.webp",
+      "productEvidence": true,
+      "sourceRepository": "makeworlds",
+      "sourcePath": "Apps/MakeWorldsFoundry/Intermediate/Acceptance/Records/boards/B-Train/panels/0004-view-000057.reference.png",
+      "sourceSha256": "79b1e271b458c6c09d448e5079ffe545eed27c995553ee94ca59677b15a5318b",
+      "candidate": "bb039199",
+      "record": "B-Train-c3fcfe0b.json",
+      "sample": "B-Train",
+      "platform": "Mac",
+      "view": "view-000057",
+      "selectionRule": "Selected test views for overall shape, an oblique overview and side texture; paired original photographs and renders from one frozen-candidate evaluation.",
+      "rights": "MakeWorlds owner approved promotional use on 2026-10-01 (Tanks and Temples)",
+      "width": 979,
+      "height": 545,
+      "encoding": "WebP quality 94, no upscaling or enhancement",
+      "placement": "Blog Train article and related article links",
+      "publicationSha256": "3700f07e4c75978e868db74e71fad0722dd6ec0867e1e338732701be4602e552",
+      "sourceWebsitePath": "makeworlds-site/assets/blog/train-diagonal-photo.webp"
+    },
+    {
+      "path": "assets/images/train-side-render.webp",
+      "productEvidence": true,
+      "sourceRepository": "makeworlds",
+      "sourcePath": "Apps/MakeWorldsFoundry/Intermediate/Acceptance/Records/boards/B-Train/panels/0016-view-000249.render.png",
+      "sourceSha256": "bb4de0bf905961e2c684048ad40d82be239a1302aa60268debde085413f48485",
+      "candidate": "bb039199",
+      "record": "B-Train-c3fcfe0b.json",
+      "sample": "B-Train",
+      "platform": "Mac",
+      "view": "view-000249",
+      "selectionRule": "Selected test views for overall shape, an oblique overview and side texture; paired original photographs and renders from one frozen-candidate evaluation.",
+      "rights": "MakeWorlds owner approved promotional use on 2026-10-01 (Tanks and Temples)",
+      "width": 979,
+      "height": 545,
+      "encoding": "WebP quality 94, no upscaling or enhancement",
+      "placement": "Blog Train article and related article links",
+      "publicationSha256": "634c16ffa34085f9e8a9e4b8bdcf88d20aac4789f95ff4402c37ab3d527d20fe",
+      "sourceWebsitePath": "makeworlds-site/assets/blog/train-side-render.webp",
+      "thumbnail": {
+        "path": "assets/images/train-side-render-400.webp",
+        "sha256": "b8b6a33acf8b169adfb4e9ffef7ba8d4843c1762ec87f114abe3546a438b2f5d",
+        "width": 400,
+        "height": 223,
+        "sourceWebsitePath": "makeworlds-site/assets/blog/train-side-render-400.webp"
+      }
+    },
+    {
+      "path": "assets/images/train-side-photo.webp",
+      "productEvidence": true,
+      "sourceRepository": "makeworlds",
+      "sourcePath": "Apps/MakeWorldsFoundry/Intermediate/Acceptance/Records/boards/B-Train/panels/0016-view-000249.reference.png",
+      "sourceSha256": "ccfee8efd77e0d54b050156b0b4a18c9d88d7ad6b7af1956dc5bd95ca7029f03",
+      "candidate": "bb039199",
+      "record": "B-Train-c3fcfe0b.json",
+      "sample": "B-Train",
+      "platform": "Mac",
+      "view": "view-000249",
+      "selectionRule": "Selected test views for overall shape, an oblique overview and side texture; paired original photographs and renders from one frozen-candidate evaluation.",
+      "rights": "MakeWorlds owner approved promotional use on 2026-10-01 (Tanks and Temples)",
+      "width": 979,
+      "height": 545,
+      "encoding": "WebP quality 94, no upscaling or enhancement",
+      "placement": "Blog Train article and related article links",
+      "publicationSha256": "a60ea1279850f452dbd7c78bfb68da9a7af651684def10c8fac82ed5b453a13d",
+      "sourceWebsitePath": "makeworlds-site/assets/blog/train-side-photo.webp"
+    }
+  ],
+  "brand": {
+    "file": "assets/mark.svg",
+    "sha256": "b5e362137f519ee9948f579a877f793e261f2f3ee8d2ec20dfe0b2678fbe41ed",
+    "source": "MakeWorlds official website"
+  },
+  "icons": [
+    {
+      "file": "assets/x.svg",
+      "sha256": "dd46f96b6f47fcd33683b79ddfaf3daca1d4f8aeba3c0f2bde1584c69cc699d4",
+      "sourceWebsitePath": "makeworlds-site/seo/icons/x.svg",
+      "sourceUrl": "https://about.x.com/en/who-we-are/brand-toolkit"
+    }
+  ]
+}
