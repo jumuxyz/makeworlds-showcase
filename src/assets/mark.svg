@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>MakeWorlds application mark</title>
+  <path
+    d="M 136 728 L 136 296 L 328 552 L 512 296 L 696 552 L 888 296 L 888 728"
+    fill="none"
+    stroke="#FF6E00"
+    stroke-width="112"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+</svg>
