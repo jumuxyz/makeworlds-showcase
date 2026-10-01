@@ -1,0 +1,14 @@
+{
+  "name": "makeworlds-showcase",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Selected public-scene studies and evaluation notes for MakeWorlds.",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "dev": "node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs"
+  }
+}
